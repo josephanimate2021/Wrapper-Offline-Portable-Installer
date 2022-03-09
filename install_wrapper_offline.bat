@@ -28,7 +28,9 @@ title Wrapper: Offline Installer
 cls
 
 echo Wrapper: Offline Installer
-echo Project led by GoTest334. Installer is created by the Wrapper Offline Team. Installer is recreated by Joseph Animate 2022.
+echo Project led by GoTest334. 
+echo Installer is created by the Wrapper Offline Team. 
+echo Installer is recreated by Joseph Animate 2022.
 echo:
 echo Enter 1 to install Wrapper: Offline
 echo Enter 2 to install Wrapper: Offline Beta
@@ -52,7 +54,6 @@ pushd "..\..\"
 echo Cloning repository from GitHub...
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
 echo Wrapper: Offline Has Been Installed
-cls
 pause
 goto cls
 
@@ -62,9 +63,9 @@ pushd "..\..\"
 echo Cloning repository from GitHub...
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline-Beta.git
 echo Wrapper: Offline Beta Has Been Installed
-cls
 pause
 goto cls
 
 :exit
+echo the Wrapper: Offline installer has been closed.
 pause & exit
