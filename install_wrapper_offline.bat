@@ -61,7 +61,7 @@ goto cls
 cls
 pushd "..\..\"
 echo Cloning repository from GitHub...
-call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline-Beta.git
+call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
 echo Wrapper: Offline Beta Has Been Installed
 pause
 goto cls
