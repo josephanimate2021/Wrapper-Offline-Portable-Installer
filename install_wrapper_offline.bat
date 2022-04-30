@@ -4,6 +4,7 @@
 :: Set Some Installation Variables
 set WOPATH=%USERPROFILE%\Downloads\Wrapper-Offline
 set WORPATH=%USERPROFILE%\Downloads\Wrapper-Modded-Revision
+set WOINSTALLPATH=%USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main
 title Wrapper: Offline Installer [Initializing...]
 
 ::::::::::::::::::::
