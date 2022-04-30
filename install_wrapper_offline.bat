@@ -69,17 +69,19 @@ call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-
 echo Wrapper: Offline Has Been Installed
 cd %WOPATH%\wrapper
 if not exist node_modules (
-echo you may close this installer once the dependicies needed for Wrapper: Offline to run are installed.
 if exist package-lock.json (
+echo you may close this installer once the dependicies needed for wrapper to run are installed.
 npm install
+echo All Of The Dependicies Are Installed.
+pause
 ) else (
+echo you may close this installer once the dependicies needed for wrapper to run are installed.
 copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\npm-packages\1.2.3\package-lock.json %WOPATH%\wrapper
 npm install
-)
 echo All Of The Dependicies Are Installed.
-)
 pause
-goto cls
+)
+)
 
 :download_beta
 cls
@@ -177,17 +179,19 @@ call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-
 echo The Modded Version Of Wrapper: Offline Has Been Installed. 
 cd %WOMPATH%\wrapper
 if not exist node_modules (
-echo you may close this installer once the dependicies needed for Modded wrapper to run are installed.
 if exist package-lock.json (
+echo you may close this installer once the dependicies needed for Modded wrapper to run are installed.
 npm install
+echo All Of The Dependicies Are Installed.
+pause
 ) else (
+echo you may close this installer once the dependicies needed for Modded wrapper to run are installed.
 copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\npm-packages\1.2.3\package-lock.json %WOMPATH%\wrapper
 npm install
-)
 echo All Of The Dependicies Are Installed.
-)
 pause
-goto cls
+)
+)
 
 :exit
 echo the Wrapper: Offline installer has been closed.
