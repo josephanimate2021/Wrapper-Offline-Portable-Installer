@@ -2,6 +2,12 @@
 :: Author: benson#0411
 :: Project Runner: GoTest334#9880
 :: License: MIT
+:: Lets variables work or something idk im not a nerd
+SETLOCAL ENABLEDELAYEDEXPANSION
+:: Activate config to auto update wrapper
+pushd utilities
+if not exist config.bat ( goto configmissing ) else ( call config.bat )
+pushd ..\
 set WRAPPER_VER=1.3.0
 title Wrapper: Offline v%WRAPPER_VER% [Initializing...]
 
@@ -34,9 +40,6 @@ if !AUTOUPDATE!==y (
 	PING -n 3 127.0.0.1>nul
 	cls
 )
-
-:: Lets variables work or something idk im not a nerd
-SETLOCAL ENABLEDELAYEDEXPANSION
 
 :: Make sure we're starting in the correct folder, and that it worked (otherwise things would go horribly wrong)
 pushd "%~dp0"
@@ -75,9 +78,8 @@ echo:
 
 :: Confirm measurements to proceed.
 set SUBSCRIPT=y
+:: Fake loading settings
 echo Loading settings...
-if not exist utilities\config.bat ( goto configmissing )
-call utilities\config.bat
 echo:
 if !VERBOSEWRAPPER!==y ( echo Verbose mode activated. && echo:)
 goto configavailable
