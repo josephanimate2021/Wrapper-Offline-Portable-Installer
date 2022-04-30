@@ -61,7 +61,11 @@ echo Time to choose. && goto wrapperidle
 cls
 pushd "..\..\"
 echo Cloning repository from GitHub...
+if exist .git (
+call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
+) else (
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
+)
 echo Wrapper: Offline Has Been Installed
 cd %WOPATH%\wrapper
 if not exist node_modules (
@@ -81,7 +85,11 @@ goto cls
 cls
 pushd "..\..\"
 echo Cloning repository from GitHub...
+if exist .git (
+call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
+) else (
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
+)
 cd %WOPATH%\wrapper
 if not exist _ASSETS ( md _ASSETS )
 if not exist node_modules (
@@ -148,7 +156,11 @@ pause
 cls
 pushd "..\..\"
 echo Cloning repository from GitHub...
+if exist .git (
+call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Modded-Revision.git
+) else (
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Modded-Revision.git
+)
 echo Wrapper: Offline Revision Has Been Installed
 pause
 goto cls
@@ -157,7 +169,11 @@ goto cls
 cls
 pushd "..\..\"
 echo Cloning repository from GitHub...
+if exist .git (
+call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
+) else (
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
+)
 echo The Modded Version Of Wrapper: Offline Has Been Installed. 
 cd %WOMPATH%\wrapper
 if not exist node_modules (
