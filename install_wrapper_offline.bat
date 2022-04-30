@@ -63,7 +63,6 @@ pushd "..\..\"
 echo Cloning repository from GitHub...
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
 echo Wrapper: Offline Has Been Installed
-:: Install Some Dependicies Need For Wrapper: Offline To Run.
 cd %WOPATH%\wrapper
 if not exist node_modules (
 echo you may close this installer once the dependicies needed for Wrapper: Offline to run are installed.
@@ -79,19 +78,16 @@ pause
 goto cls
 
 :download_beta
-:: Wrapper Offline 1.3.0 is broken. so alot has to be done here while the installation of Wrapper Offline 1.3.0 is peformed
 cls
 pushd "..\..\"
 echo Cloning repository from GitHub...
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
-:: Create the _ASSETS folder and install some dependicies
 cd %WOPATH%\wrapper
 if not exist _ASSETS ( md _ASSETS )
 if not exist node_modules (
 echo Wrapper: Offline Beta Has Been Installed. 
 echo but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. 
 echo you can close this once the installation has been done to the dependicies.
-:: Copy the package-lock.json file required to install dependicies into the wrapper folder itself.
 if exist package-lock.json (
 npm install
 ) else (
@@ -101,18 +97,15 @@ npm install
 echo All of the dependicies have been installed. 
 echo This installer is now attempting to reapir Wrapper: Offline 1.3.0. 
 echo When will those stupid wrapper offline devs get a life!
-:: Add A Feature Where You Can Preview A Video From A Scene You Pick To Wrapper Offline 1.3.0 And Squash The Title Bug
 cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
 del %WOPATH%\wrapper\pages\js\studio.js
 copy studio.js %WOPATH%\wrapper\pages\js
 cd ..\..\views
 del %WOPATH%\wrapper\views\studio.eta
 copy studio.eta %WOPATH%\wrapper\views
-:: Copy the repaired database onto the _ASSETS Folder
 cd ..\_ASSETS
 copy database.json %WOPATH%\wrapper\_ASSETS
 cd ..\
-:: Fix start_wrapper.bat not auto updating
 del %WOPATH%\start_wrapper.bat
 copy start_wrapper.bat %WOPATH%
 echo Wrapper: Offline 1.3.0 has been repaired! 
@@ -120,12 +113,10 @@ echo Please enjoy using it.
 echo if it breaks, you can consider telling the Wrapper: Offline Team about this since Joseph Animate 2022 Does Not Own Wrapper: Offline. 
 echo This installer justs helps out on some repairing.
 ) else (
-:: the node_modules folder has to be deleted to peform a fresh installation of the dependicies.
 rd /q /s node_modules
 echo Wrapper: Offline Beta Has Been Installed. 
 echo but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. 
 echo you can close this once the installation has been done to the dependicies.
-:: Copy the package-lock.json file required to install dependicies into the wrapper folder itself.
 if exist package-lock.json (
 npm install
 ) else (
@@ -135,25 +126,21 @@ npm install
 echo All of the dependicies have been installed. 
 echo This installer is now attempting to reapir Wrapper: Offline 1.3.0. 
 echo When will those stupid wrapper offline devs get a life!
-:: Add A Feature Where You Can Preview A Video From A Scene You Pick To Wrapper Offline 1.3.0 And Squash The Title Bug
 cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
 del %WOPATH%\wrapper\pages\js\studio.js
 copy studio.js %WOPATH%\wrapper\pages\js
 cd ..\..\views
 del %WOPATH%\wrapper\views\studio.eta
 copy studio.eta %WOPATH%\wrapper\views
-:: Copy the repaired database onto the _ASSETS Folder
 cd ..\_ASSETS
 copy database.json %WOPATH%\wrapper\_ASSETS
 cd ..\
-:: Fix start_wrapper.bat not auto updating
 del %WOPATH%\start_wrapper.bat
 copy start_wrapper.bat %WOPATH%
 echo Wrapper: Offline 1.3.0 has been repaired! 
 echo Please enjoy using it. 
 echo if it breaks, you can consider telling the Wrapper: Offline Team about this since Joseph Animate 2022 Does Not Own Wrapper: Offline. 
 echo This installer justs helps out on some repairing.
-:: The might close anyway at this rate. i don't know what else to do.
 pause
 )
 
@@ -172,7 +159,6 @@ pushd "..\..\"
 echo Cloning repository from GitHub...
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
 echo The Modded Version Of Wrapper: Offline Has Been Installed. 
-:: Install Some Dependicies Need For The Mooded Version Of Wrapper: Offline To Run.
 cd %WOMPATH%\wrapper
 if not exist node_modules (
 echo you may close this installer once the dependicies needed for Modded wrapper to run are installed.
