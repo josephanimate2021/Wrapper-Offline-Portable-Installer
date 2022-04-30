@@ -75,7 +75,9 @@ call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-
 cd %WOPATH%\wrapper
 if not exist _ASSETS ( md _ASSETS )
 if not exist node_modules (
-echo Wrapper: Offline Beta Has Been Installed. but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. you can close this once the installation has been done to the dependicies.
+echo Wrapper: Offline Beta Has Been Installed. 
+echo but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. 
+echo you can close this once the installation has been done to the dependicies.
 :: Copy the package-lock.json file required to install dependicies into the wrapper folder itself.
 if exist package-lock.json (
 npm install
@@ -83,7 +85,9 @@ npm install
 copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\package-lock.json %WOPATH%\wrapper
 npm install
 )
-echo All of the dependicies have been installed. This installer is now attempting to reapir Wrapper: Offline 1.3.0. When will those stupid wrapper offline devs get a life!
+echo All of the dependicies have been installed. 
+echo This installer is now attempting to reapir Wrapper: Offline 1.3.0. 
+echo When will those stupid wrapper offline devs get a life!
 :: Add A Feature Where You Can Preview A Video From A Scene You Pick To Wrapper Offline 1.3.0 And Squash The Title Bug
 cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
 del %WOPATH%\wrapper\pages\js\studio.js
@@ -94,12 +98,20 @@ copy studio.eta %WOPATH%\wrapper\views
 :: Copy the repaired database onto the _ASSETS Folder
 cd ..\_ASSETS
 copy database.json %WOPATH%\wrapper\_ASSETS
-echo Wrapper: Offline 1.3.0 has been repaired! Please enjoy using it. if it breaks, you can consider telling the Wrapper: Offline Team about this since Joseph Animate 2022 Does Not Own Wrapper: Offline. This installer justs helps out on some repairing.
-goto clsbeta
+cd ..\
+:: Fix start_wrapper.bat not auto updating
+del %WOPATH%\start_wrapper.bat
+copy start_wrapper.bat %WOPATH%
+echo Wrapper: Offline 1.3.0 has been repaired! 
+echo Please enjoy using it. 
+echo if it breaks, you can consider telling the Wrapper: Offline Team about this since Joseph Animate 2022 Does Not Own Wrapper: Offline. 
+echo This installer justs helps out on some repairing.
 ) else (
 :: the node_modules folder has to be deleted to peform a fresh installation of the dependicies.
 rd /q /s node_modules
-echo Wrapper: Offline Beta Has Been Installed. but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. you can close this once the installation has been done to the dependicies.
+echo Wrapper: Offline Beta Has Been Installed. 
+echo but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. 
+echo you can close this once the installation has been done to the dependicies.
 :: Copy the package-lock.json file required to install dependicies into the wrapper folder itself.
 if exist package-lock.json (
 npm install
@@ -107,7 +119,9 @@ npm install
 copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\package-lock.json %WOPATH%\wrapper
 npm install
 )
-echo All of the dependicies have been installed. This installer is now attempting to reapir Wrapper: Offline 1.3.0. When will those stupid wrapper offline devs get a life!
+echo All of the dependicies have been installed. 
+echo This installer is now attempting to reapir Wrapper: Offline 1.3.0. 
+echo When will those stupid wrapper offline devs get a life!
 :: Add A Feature Where You Can Preview A Video From A Scene You Pick To Wrapper Offline 1.3.0 And Squash The Title Bug
 cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
 del %WOPATH%\wrapper\pages\js\studio.js
@@ -118,9 +132,16 @@ copy studio.eta %WOPATH%\wrapper\views
 :: Copy the repaired database onto the _ASSETS Folder
 cd ..\_ASSETS
 copy database.json %WOPATH%\wrapper\_ASSETS
-echo Wrapper: Offline 1.3.0 has been repaired! Please enjoy using it. if it breaks, you can consider telling the Wrapper: Offline Team about this since Joseph Animate 2022 Does Not Own Wrapper: Offline. This installer justs helps out on some repairing.
-goto clsbeta
+cd ..\
+:: Fix start_wrapper.bat not auto updating
+del %WOPATH%\start_wrapper.bat
+copy start_wrapper.bat %WOPATH%
+echo Wrapper: Offline 1.3.0 has been repaired! 
+echo Please enjoy using it. 
+echo if it breaks, you can consider telling the Wrapper: Offline Team about this since Joseph Animate 2022 Does Not Own Wrapper: Offline. 
+echo This installer justs helps out on some repairing.
 )
+goto clsbeta
 
 :download_revision
 cls
