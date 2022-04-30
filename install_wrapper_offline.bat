@@ -32,8 +32,9 @@ echo Project led by GoTest334.
 echo Installer is created by the Wrapper Offline Team. 
 echo Installer is recreated by Joseph Animate 2022.
 echo:
-echo Enter 1 to install Wrapper: Offline
-echo Enter 2 to install Wrapper: Offline Beta
+echo Enter 1 to install Wrapper: Offline (Recomended)
+echo Enter 2 to install Wrapper: Offline Beta (Broken And Not Recomended)
+echo Enter 3 to install Wrapper: Offline Revision (Working Version Of Wrapper: Offline Beta & Recomended)
 echo Enter 0 to close the installer
 :wrapperidle
 echo:
@@ -46,6 +47,7 @@ set /p CHOICE=Choice:
 if "!choice!"=="0" goto exit
 if "!choice!"=="1" goto download
 if "!choice!"=="2" goto download_beta
+if "!choice!"=="3" goto download_revision
 echo Time to choose. && goto wrapperidle
 
 :download
@@ -63,6 +65,15 @@ pushd "..\..\"
 echo Cloning repository from GitHub...
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
 echo Wrapper: Offline Beta Has Been Installed
+pause
+goto cls
+
+:download_revision
+cls
+pushd "..\..\"
+echo Cloning repository from GitHub...
+call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Modded-Revision.git
+echo Wrapper: Offline Revision Has Been Installed
 pause
 goto cls
 
