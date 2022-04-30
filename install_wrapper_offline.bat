@@ -5,6 +5,7 @@
 set WOPATH=%USERPROFILE%\Downloads\Wrapper-Offline
 set WORPATH=%USERPROFILE%\Downloads\Wrapper-Modded-Revision
 set WOINSTALLPATH=%USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main
+set WOMPATH=%USERPROFILE%\Downloads\Modded-Wrapper
 title Wrapper: Offline Installer [Initializing...]
 
 ::::::::::::::::::::
@@ -62,6 +63,18 @@ pushd "..\..\"
 echo Cloning repository from GitHub...
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
 echo Wrapper: Offline Has Been Installed
+:: Install Some Dependicies Need For Wrapper: Offline To Run.
+cd %WOPATH%\wrapper
+if not exist node_modules (
+echo you may close this installer once the dependicies needed for Wrapper: Offline to run are installed.
+if exist package-lock.json (
+npm install
+) else (
+copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\npm-packages\1.2.3\package-lock.json %WOPATH%\wrapper
+npm install
+)
+echo All Of The Dependicies Are Installed.
+)
 pause
 goto cls
 
@@ -140,8 +153,9 @@ echo Wrapper: Offline 1.3.0 has been repaired!
 echo Please enjoy using it. 
 echo if it breaks, you can consider telling the Wrapper: Offline Team about this since Joseph Animate 2022 Does Not Own Wrapper: Offline. 
 echo This installer justs helps out on some repairing.
+:: The might close anyway at this rate. i don't know what else to do.
+pause
 )
-goto clsbeta
 
 :download_revision
 cls
@@ -157,14 +171,22 @@ cls
 pushd "..\..\"
 echo Cloning repository from GitHub...
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
-echo The Modded Version Of Wrapper: Offline Has Been Installed
+echo The Modded Version Of Wrapper: Offline Has Been Installed. 
+:: Install Some Dependicies Need For The Mooded Version Of Wrapper: Offline To Run.
+cd %WOMPATH%\wrapper
+if not exist node_modules (
+echo you may close this installer once the dependicies needed for Modded wrapper to run are installed.
+if exist package-lock.json (
+npm install
+) else (
+copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\npm-packages\1.2.3\package-lock.json %WOMPATH%\wrapper
+npm install
+)
+echo All Of The Dependicies Are Installed.
+)
 pause
 goto cls
 
 :exit
 echo the Wrapper: Offline installer has been closed.
 pause & exit
-
-:clsbeta
-pause
-goto cls
