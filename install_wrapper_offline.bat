@@ -58,15 +58,30 @@ call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-
 echo Wrapper: Offline Has Been Installed
 pause
 goto cls
-
+:: Wrapper Offline 1.3.0 is broken. so alot has to be done here while the installation of Wrapper Offline 1.3.0 is peformed
 :download_beta
 cls
 pushd "..\..\"
 echo Cloning repository from GitHub...
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
-echo Wrapper: Offline Beta Has Been Installed
-pause
-goto cls
+:: Create the _ASSETS folder and install some dependicies
+pushd Wrapper-Offline/wrapper
+if not exist _ASSETS (
+mkdir _ASSETS
+)
+if not exist node_modules (
+echo Wrapper: Offline Beta Has Been Installed. but the dependicies for wrapper have to be installed in order to run properly. you can close this once the installation has been done to the dependicies.
+npm install
+echo All of the dependicies have been installed.
+pause & goto cls
+) else (
+:: the node_modules folder has to be deleted to peform a fresh installation of the dependicies.
+rd /q /s node_modules
+echo Wrapper: Offline Beta Has Been Installed. but the dependicies for wrapper have to be installed in order to run properly. you can close this once the installation has been done to the dependicies.
+npm install
+echo All of the dependicies have been installed.
+pause & goto cls
+)
 
 :download_revision
 cls
