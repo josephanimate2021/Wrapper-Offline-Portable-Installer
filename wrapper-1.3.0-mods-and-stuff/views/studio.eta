@@ -24,7 +24,7 @@
 					<h3 class="close-button" onclick="hideImporter()">✖</h3>
 				</div>
 				<form>
-					<input id="importer-files" type="file" name="file" title="Upload Files" style="display:none" />
+					<input id="importer-files" type="file" name="file" style="display:none" />
 				</form>
 			</nav>
 			<div id="importer-queue"></div>
