@@ -5,6 +5,7 @@
 :: Lets variables work or something idk im not a nerd
 SETLOCAL ENABLEDELAYEDEXPANSION
 :: Activate config to auto update wrapper
+set SUBSCRIPT=y
 pushd utilities
 if not exist config.bat ( goto configmissing ) else ( call config.bat )
 pushd ..\
@@ -25,9 +26,7 @@ if !AUTOUPDATE!==y (
 	pushd "%~dp0"
 	if exist .git (
 		echo Updating...
-		call utilities\PortableGit\bin\git.exe checkout main
-		call utilities\PortableGit\bin\git.exe fetch --all
-		call utilities\PortableGit\bin\git.exe reset --hard origin/main
+		call utilities\PortableGit\bin\git.exe pull
 		PING -n 3 127.0.0.1>nul
 		cls
 	) else (
@@ -77,7 +76,6 @@ echo Version !WRAPPER_VER!
 echo:
 
 :: Confirm measurements to proceed.
-set SUBSCRIPT=y
 :: Fake loading settings
 echo Loading settings...
 echo:
