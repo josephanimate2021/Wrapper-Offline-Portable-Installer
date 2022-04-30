@@ -39,6 +39,7 @@ echo:
 echo Enter 1 to install Wrapper: Offline (Recomended)
 echo Enter 2 to install Wrapper: Offline Beta (This Installer Will Fix Some Stuff In Wrapper Offline Beta And Not Recomended)
 echo Enter 3 to install Wrapper: Offline Revision (Working Version Of Wrapper: Offline Beta And Recomended)
+echo Enter 4 to install the modded version of Wrapper: Offline (if you want to mod wrapper)
 echo Enter 0 to close the installer
 :wrapperidle
 echo:
@@ -52,6 +53,7 @@ if "!choice!"=="0" goto exit
 if "!choice!"=="1" goto download
 if "!choice!"=="2" goto download_beta
 if "!choice!"=="3" goto download_revision
+if "!choice!"=="4" goto download_modded_wrapper
 echo Time to choose. && goto wrapperidle
 
 :download
@@ -126,6 +128,15 @@ pushd "..\..\"
 echo Cloning repository from GitHub...
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Modded-Revision.git
 echo Wrapper: Offline Revision Has Been Installed
+pause
+goto cls
+
+:download_modded_wrapper
+cls
+pushd "..\..\"
+echo Cloning repository from GitHub...
+call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
+echo The Modded Version Of Wrapper: Offline Has Been Installed
 pause
 goto cls
 
