@@ -1,6 +1,9 @@
 :: Wrapper: Offline Installer
 :: Author: joseph the animator#2292
 :: License: MIT
+:: Set Some Installation Variables
+set WOPATH=%USERPROFILE%\Downloads\Wrapper-Offline
+set WORPATH=%USERPROFILE%\Downloads\Wrapper-Modded-Revision
 title Wrapper: Offline Installer [Initializing...]
 
 ::::::::::::::::::::
@@ -33,7 +36,7 @@ echo Installer is created by the Wrapper Offline Team.
 echo Installer is recreated by Joseph Animate 2022.
 echo:
 echo Enter 1 to install Wrapper: Offline (Recomended)
-echo Enter 2 to install Wrapper: Offline Beta (Broken And Not Recomended)
+echo Enter 2 to install Wrapper: Offline Beta (This Installer Will Fix Some Stuff In Wrapper Offline Beta And Not Recomended)
 echo Enter 3 to install Wrapper: Offline Revision (Working Version Of Wrapper: Offline Beta And Recomended)
 echo Enter 0 to close the installer
 :wrapperidle
@@ -58,19 +61,18 @@ call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-
 echo Wrapper: Offline Has Been Installed
 pause
 goto cls
-:: Wrapper Offline 1.3.0 is broken. so alot has to be done here while the installation of Wrapper Offline 1.3.0 is peformed
+
 :download_beta
+:: Wrapper Offline 1.3.0 is broken. so alot has to be done here while the installation of Wrapper Offline 1.3.0 is peformed
 cls
 pushd "..\..\"
 echo Cloning repository from GitHub...
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
 :: Create the _ASSETS folder and install some dependicies
-pushd Wrapper-Offline/wrapper
-if not exist _ASSETS (
-md _ASSETS
-)
+cd %WOPATH%\wrapper
+if not exist _ASSETS ( md _ASSETS )
 if not exist node_modules (
-echo Wrapper: Offline Beta Has Been Installed. but the dependicies for wrapper have to be installed in order to run properly. you can close this once the installation has been done to the dependicies.
+echo Wrapper: Offline Beta Has Been Installed. but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. you can close this once the installation has been done to the dependicies.
 npm install
 echo All of the dependicies have been installed.
 pause
@@ -78,7 +80,7 @@ goto cls
 ) else (
 :: the node_modules folder has to be deleted to peform a fresh installation of the dependicies.
 rd /q /s node_modules
-echo Wrapper: Offline Beta Has Been Installed. but the dependicies for wrapper have to be installed in order to run properly. you can close this once the installation has been done to the dependicies.
+echo Wrapper: Offline Beta Has Been Installed. but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. you can close this once the installation has been done to the dependicies.
 npm install
 echo All of the dependicies have been installed.
 pause
