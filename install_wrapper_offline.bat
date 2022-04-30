@@ -34,7 +34,7 @@ echo Installer is recreated by Joseph Animate 2022.
 echo:
 echo Enter 1 to install Wrapper: Offline (Recomended)
 echo Enter 2 to install Wrapper: Offline Beta (Broken And Not Recomended)
-echo Enter 3 to install Wrapper: Offline Revision (Working Version Of Wrapper: Offline Beta & Recomended)
+echo Enter 3 to install Wrapper: Offline Revision (Working Version Of Wrapper: Offline Beta And Recomended)
 echo Enter 0 to close the installer
 :wrapperidle
 echo:
