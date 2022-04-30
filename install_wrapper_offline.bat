@@ -67,20 +67,22 @@ call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-
 :: Create the _ASSETS folder and install some dependicies
 pushd Wrapper-Offline/wrapper
 if not exist _ASSETS (
-mkdir _ASSETS
+md _ASSETS
 )
 if not exist node_modules (
 echo Wrapper: Offline Beta Has Been Installed. but the dependicies for wrapper have to be installed in order to run properly. you can close this once the installation has been done to the dependicies.
 npm install
 echo All of the dependicies have been installed.
-pause & goto cls
+pause
+goto cls
 ) else (
 :: the node_modules folder has to be deleted to peform a fresh installation of the dependicies.
 rd /q /s node_modules
 echo Wrapper: Offline Beta Has Been Installed. but the dependicies for wrapper have to be installed in order to run properly. you can close this once the installation has been done to the dependicies.
 npm install
 echo All of the dependicies have been installed.
-pause & goto cls
+pause
+goto cls
 )
 
 :download_revision
