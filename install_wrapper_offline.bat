@@ -81,14 +81,6 @@ npm install
 copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\package-lock.json %WOPATH%\wrapper
 npm install
 )
-echo All of the dependicies have been installed.
-pause
-goto cls
-) else (
-:: the node_modules folder has to be deleted to peform a fresh installation of the dependicies.
-rd /q /s node_modules
-echo Wrapper: Offline Beta Has Been Installed. but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. you can close this once the installation has been done to the dependicies.
-npm install
 echo All of the dependicies have been installed. This installer is now attempting to reapir Wrapper: Offline 1.3.0. When will those stupid wrapper offline devs get a life!
 :: Add A Feature Where You Can Preview A Video From A Scene You Pick To Wrapper Offline 1.3.0 And Squash The Title Bug
 cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
@@ -101,8 +93,31 @@ copy studio.eta %WOPATH%\wrapper\views
 cd ..\_ASSETS
 copy database.json %WOPATH%\wrapper\_ASSETS
 echo Wrapper: Offline 1.3.0 has been repaired! Please enjoy using it. if it breaks, you can consider telling the Wrapper: Offline Team about this since Joseph Animate 2022 Does Not Own Wrapper: Offline. This installer justs helps out on some repairing.
-pause
-goto cls
+goto clsbeta
+) else (
+:: the node_modules folder has to be deleted to peform a fresh installation of the dependicies.
+rd /q /s node_modules
+echo Wrapper: Offline Beta Has Been Installed. but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. you can close this once the installation has been done to the dependicies.
+:: Copy the package-lock.json file required to install dependicies into the wrapper folder itself.
+if exist package-lock.json (
+npm install
+) else (
+copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\package-lock.json %WOPATH%\wrapper
+npm install
+)
+echo All of the dependicies have been installed. This installer is now attempting to reapir Wrapper: Offline 1.3.0. When will those stupid wrapper offline devs get a life!
+:: Add A Feature Where You Can Preview A Video From A Scene You Pick To Wrapper Offline 1.3.0 And Squash The Title Bug
+cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
+del %WOPATH%\wrapper\pages\js\studio.js
+copy studio.js %WOPATH%\wrapper\pages\js
+cd ..\..\views
+del %WOPATH%\wrapper\views\studio.eta
+copy studio.eta %WOPATH%\wrapper\views
+:: Copy the repaired database onto the _ASSETS Folder
+cd ..\_ASSETS
+copy database.json %WOPATH%\wrapper\_ASSETS
+echo Wrapper: Offline 1.3.0 has been repaired! Please enjoy using it. if it breaks, you can consider telling the Wrapper: Offline Team about this since Joseph Animate 2022 Does Not Own Wrapper: Offline. This installer justs helps out on some repairing.
+goto clsbeta
 )
 
 :download_revision
@@ -117,3 +132,7 @@ goto cls
 :exit
 echo the Wrapper: Offline installer has been closed.
 pause & exit
+
+:clsbeta
+pause
+goto cls
