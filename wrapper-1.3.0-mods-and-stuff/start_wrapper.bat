@@ -459,7 +459,7 @@ echo :: You should be using settings.bat, and not touching this. Offline relies 
 echo:>> utilities\config.bat
 echo :: Opens this file in Notepad when run>> utilities\config.bat
 echo setlocal>> utilities\config.bat
-echo if "%%SUBSCRIPT%%"=="" ( pushd "%~dp0" ^& start notepad.exe config.bat ^& exit )>> utilities\config.bat
+echo if "%%SUBSCRIPT%%"=="" ( pushd "%~dp0\utilities" ^& start notepad.exe config.bat ^& exit )>> utilities\config.bat
 echo endlocal>> utilities\config.bat
 echo:>> utilities\config.bat
 echo :: Shows exactly Offline is doing, and never clears the screen. Useful for development and troubleshooting. Default: n>> utilities\config.bat
