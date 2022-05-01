@@ -124,6 +124,7 @@ echo Wrapper: Offline 1.3.0 has been repaired!
 echo Please enjoy using it. 
 echo if it breaks, you can consider telling the Wrapper: Offline Team about this since Joseph Animate 2022 Does Not Own Wrapper: Offline. 
 echo This installer justs helps out on some repairing.
+pause
 ) else (
 rd /q /s node_modules
 echo Wrapper: Offline Beta Has Been Installed. 
