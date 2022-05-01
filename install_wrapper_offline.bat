@@ -61,8 +61,8 @@ echo Time to choose. && goto wrapperidle
 cls
 echo Cloning repository from GitHub...
 if exist .git (
-cd %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer
-call PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
+cd %USERPROFILE%\Downloads
+call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
 ) else (
 cd ..\..\
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
@@ -88,8 +88,8 @@ pause
 cls
 echo Cloning repository from GitHub...
 if exist .git (
-cd %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer
-call PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
+cd %USERPROFILE%\Downloads
+call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
 ) else (
 cd ..\..\
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
@@ -163,8 +163,8 @@ pause
 cls
 echo Cloning repository from GitHub...
 if exist .git (
-cd %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer
-call PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Modded-Revision.git
+cd %USERPROFILE%\Downloads
+call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Modded-Revision.git
 ) else (
 cd ..\..\
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Modded-Revision.git
@@ -177,8 +177,8 @@ goto cls
 cls
 echo Cloning repository from GitHub...
 if exist .git (
-cd %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer
-call PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
+cd %USERPROFILE%\Downloads
+call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
 ) else (
 cd ..\..\
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
