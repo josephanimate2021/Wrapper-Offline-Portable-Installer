@@ -59,11 +59,12 @@ echo Time to choose. && goto wrapperidle
 
 :download
 cls
-pushd "..\..\"
 echo Cloning repository from GitHub...
 if exist .git (
-call %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
+cd %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer
+call PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
 ) else (
+cd ..\..\
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
 )
 echo Wrapper: Offline Has Been Installed
@@ -85,11 +86,12 @@ pause
 
 :download_beta
 cls
-pushd "..\..\"
 echo Cloning repository from GitHub...
 if exist .git (
-call %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
+cd %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer
+call PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
 ) else (
+cd ..\..\
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
 )
 cd %WOPATH%\wrapper
@@ -156,11 +158,12 @@ pause
 
 :download_revision
 cls
-pushd "..\..\"
 echo Cloning repository from GitHub...
 if exist .git (
-call %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Modded-Revision.git
+cd %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer
+call PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Modded-Revision.git
 ) else (
+cd ..\..\
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Modded-Revision.git
 )
 echo Wrapper: Offline Revision Has Been Installed
@@ -169,11 +172,12 @@ goto cls
 
 :download_modded_wrapper
 cls
-pushd "..\..\"
 echo Cloning repository from GitHub...
 if exist .git (
-call %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
+cd %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer
+call PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
 ) else (
+cd ..\..\
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
 )
 echo The Modded Version Of Wrapper: Offline Has Been Installed. 
