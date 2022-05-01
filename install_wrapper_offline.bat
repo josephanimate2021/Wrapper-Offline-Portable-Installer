@@ -4,7 +4,11 @@
 :: Set Some Installation Variables
 set WOPATH=%USERPROFILE%\Downloads\Wrapper-Offline
 set WORPATH=%USERPROFILE%\Downloads\Wrapper-Modded-Revision
+if exist .git (
+set WOINSTALLPATH=%USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer
+) else (
 set WOINSTALLPATH=%USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main
+)
 set WOMPATH=%USERPROFILE%\Downloads\Modded-Wrapper
 title Wrapper: Offline Installer [Initializing...]
 
