@@ -2,6 +2,7 @@
 :: Author: benson#0411
 :: Project Runner: GoTest334#9880
 :: License: MIT
+@echo off
 :: Lets variables work or something idk im not a nerd
 SETLOCAL ENABLEDELAYEDEXPANSION
 :: Activate config to auto update wrapper
@@ -16,8 +17,8 @@ title Wrapper: Offline v%WRAPPER_VER% [Initializing...]
 :: Initialization ::
 ::::::::::::::::::::
 
-:: Stop commands from spamming stuff, cleans up the screen
-@echo off && cls
+:: cleans up the screen
+cls
 
 :: check for updates
 
