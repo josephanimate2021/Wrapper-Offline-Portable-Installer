@@ -62,7 +62,7 @@ cls
 pushd "..\..\"
 echo Cloning repository from GitHub...
 if exist .git (
-call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
+call %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
 ) else (
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
 )
@@ -88,7 +88,7 @@ cls
 pushd "..\..\"
 echo Cloning repository from GitHub...
 if exist .git (
-call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
+call %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
 ) else (
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
 )
@@ -159,7 +159,7 @@ cls
 pushd "..\..\"
 echo Cloning repository from GitHub...
 if exist .git (
-call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Modded-Revision.git
+call %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Modded-Revision.git
 ) else (
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Modded-Revision.git
 )
@@ -172,7 +172,7 @@ cls
 pushd "..\..\"
 echo Cloning repository from GitHub...
 if exist .git (
-call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
+call %USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
 ) else (
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
 )
