@@ -116,6 +116,9 @@ echo When will those stupid wrapper offline devs get a life!
 cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
 del %WOPATH%\wrapper\pages\js\studio.js
 copy studio.js %WOPATH%\wrapper\pages\js
+cd ..\html
+del %WOPATH%\wrapper\pages\html\list.html
+copy list.html %WOPATH%\wrapper\pages\html
 cd ..\..\views
 del %WOPATH%\wrapper\views\studio.eta
 copy studio.eta %WOPATH%\wrapper\views
