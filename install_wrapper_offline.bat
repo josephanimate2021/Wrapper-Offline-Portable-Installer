@@ -121,12 +121,19 @@ del %WOPATH%\wrapper\pages\html\list.html
 copy list.html %WOPATH%\wrapper\pages\html
 cd ..\..\views
 del %WOPATH%\wrapper\views\studio.eta
+del %WOPATH%\wrapper\views\player.eta
+del %WOPATH%\wrapper\views\char.eta
 copy studio.eta %WOPATH%\wrapper\views
+copy char.eta %WOPATH%\wrapper\views
+copy player.eta %WOPATH%\wrapper\views
 cd ..\_ASSETS
 copy database.json %WOPATH%\wrapper\_ASSETS
 cd ..\
 del %WOPATH%\start_wrapper.bat
 copy start_wrapper.bat %WOPATH%
+if exist %WOPATH%\utilities\config.bat (
+del %WOPATH%\utilities\config.bat
+)
 echo Wrapper: Offline 1.3.0 has been repaired! 
 echo Please enjoy using it. 
 echo if it breaks, 
@@ -150,17 +157,27 @@ echo When will those stupid wrapper offline devs get a life!
 cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
 del %WOPATH%\wrapper\pages\js\studio.js
 copy studio.js %WOPATH%\wrapper\pages\js
+cd ..\html
+del %WOPATH%\wrapper\pages\html\list.html
+copy list.html %WOPATH%\wrapper\pages\html
 cd ..\..\views
 del %WOPATH%\wrapper\views\studio.eta
+del %WOPATH%\wrapper\views\player.eta
+del %WOPATH%\wrapper\views\char.eta
 copy studio.eta %WOPATH%\wrapper\views
+copy char.eta %WOPATH%\wrapper\views
+copy player.eta %WOPATH%\wrapper\views
 cd ..\_ASSETS
 copy database.json %WOPATH%\wrapper\_ASSETS
 cd ..\
 del %WOPATH%\start_wrapper.bat
 copy start_wrapper.bat %WOPATH%
+if exist %WOPATH%\utilities\config.bat (
+del %WOPATH%\utilities\config.bat
+)
 echo Wrapper: Offline 1.3.0 has been repaired! 
 echo Please enjoy using it. 
-echo if it breaks,
+echo if it breaks, 
 echo you may consider telling the Wrapper: Offline Team about this since Joseph Animate 2022 Does Not Own Wrapper: Offline. 
 echo This installer justs helps out on some repairing.
 pause
