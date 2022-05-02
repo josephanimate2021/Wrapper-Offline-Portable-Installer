@@ -170,7 +170,9 @@ copy studio.eta %WOPATH%\wrapper\views
 copy char.eta %WOPATH%\wrapper\views
 copy player.eta %WOPATH%\wrapper\views
 cd ..\_ASSETS
+if not exist %WOPATH%\wrapper\_ASSETS\database.json (
 copy database.json %WOPATH%\wrapper\_ASSETS
+)
 cd ..\
 del %WOPATH%\start_wrapper.bat
 copy start_wrapper.bat %WOPATH%
