@@ -27,8 +27,7 @@ if !AUTOUPDATE!==y (
 	pushd "%~dp0"
 	if exist .git (
 		echo Updating...
-		call utilities\PortableGit\bin\git.exe pull || echo Update Failled. Attempting to pull the update again using git stash... & call utilities\PortableGit\bin\git.exe stash & call utilities\PortableGit\bin\git.exe pull
-		echo Wrapper: Offline Has Been Updated.
+		call utilities\PortableGit\bin\git.exe pull
 		PING -n 3 127.0.0.1>nul
 		cls
 	) else (
@@ -90,8 +89,7 @@ echo Settings are missing for some reason?
 echo Restoring...
 goto configcopy
 :returnfromconfigcopy
-if not exist utilities\config.bat ( echo Something is horribly wrong. You may be in a read-only system/admin folder. & pause & exit )
-call utilities\config.bat
+if not exist %USERPROFILE%\Downloads\Wrapper-Offline\utilities\config.bat ( echo Something is horribly wrong. You may be in a read-only system/admin folder. & pause & exit ) else ( call %USERPROFILE%\Downloads\Wrapper-Offline\utilities\config.bat )
 :configavailable
 
 ::::::::::::::::::::::
