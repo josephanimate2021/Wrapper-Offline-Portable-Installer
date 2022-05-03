@@ -112,7 +112,7 @@ if !VERBOSEWRAPPER!==y (
 
 :: Start Node.js and http-server
 echo Loading Node.js and http-server...
-pushd utilities
+pushd %USERPROFILE%\Downloads\Wrapper-Offline\utilities
 if !VERBOSEWRAPPER!==y (
 	if !DRYRUN!==n (
 		start /MIN open_http-server.bat
@@ -453,38 +453,45 @@ echo g r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r
 goto grr
 
 :configcopy
+pushd %USERPROFILE%\Downloads\Wrapper-Offline
 if not exist utilities ( md utilities )
-echo :: Wrapper: Offline Config>> utilities\config.bat
-echo :: This file is modified by settings.bat. It is not organized, but comments for each setting have been added.>> utilities\config.bat
-echo :: You should be using settings.bat, and not touching this. Offline relies on this file remaining consistent, and it's easy to mess that up.>> utilities\config.bat
-echo:>> utilities\config.bat
-echo :: Opens this file in Notepad when run>> utilities\config.bat
-echo setlocal>> utilities\config.bat
-echo if "%%SUBSCRIPT%%"=="" ( pushd "%~dp0\utilities" ^& start notepad.exe config.bat ^& exit )>> utilities\config.bat
-echo endlocal>> utilities\config.bat
-echo:>> utilities\config.bat
-echo :: Shows exactly Offline is doing, and never clears the screen. Useful for development and troubleshooting. Default: y>> utilities\config.bat
-echo set VERBOSEWRAPPER=y>> utilities\config.bat
-echo:>> utilities\config.bat
-echo :: Won't check for dependencies (flash, node, etc) and goes straight to launching. Useful for speedy launching post-install. Default: y>> utilities\config.bat
-echo set SKIPCHECKDEPENDS=y>> utilities\config.bat
-echo:>> utilities\config.bat
-echo :: Won't install dependencies, regardless of check results. Overridden by SKIPCHECKDEPENDS. Mostly useless, why did I add this again? Default: y>> utilities\config.bat
-echo set SKIPDEPENDINSTALL=y>> utilities\config.bat
-echo:>> utilities\config.bat
-echo :: Opens Offline in an included copy of ungoogled-chromium. Allows continued use of Flash as modern browsers disable it. Default: y>> utilities\config.bat
-echo set INCLUDEDCHROMIUM=y>> utilities\config.bat
-echo:>> utilities\config.bat
-echo :: Opens INCLUDEDCHROMIUM in headless mode. Looks pretty nice. Overrides CUSTOMBROWSER and BROWSER_TYPE. Default: y>> utilities\config.bat
-echo set APPCHROMIUM=y>> utilities\config.bat
-echo:>> utilities\config.bat
-echo :: Opens Offline in a browser of the user's choice. Needs to be a path to a browser executable in quotes. Default: n>> utilities\config.bat
-echo set CUSTOMBROWSER=n>> utilities\config.bat
-echo:>> utilities\config.bat
-echo :: Lets the launcher know what browser framework is being used. Mostly used by the Flash installer. Accepts "chrome", "firefox", and "n". Default: chrome>> utilities\config.bat
-echo set BROWSER_TYPE=chrome>> utilities\config.bat
-echo:>> utilities\config.bat
-echo :: Runs through all of the scripts code, while never launching or installing anything. Useful for development. Default: n>> utilities\config.bat
-echo set DRYRUN=n>> utilities\config.bat
-echo:>> utilities\config.bat
+pushd utilities
+echo :: Wrapper: Offline Config>> config.bat
+echo :: This file is modified by settings.bat. It is not organized, but comments for each setting have been added.>> config.bat
+echo :: You should be using settings.bat, and not touching this. Offline relies on this file remaining consistent, and it's easy to mess that up.>> config.bat
+echo:>> config.bat
+echo :: Opens this file in Notepad when run>> config.bat
+echo setlocal>> config.bat
+echo if "%%SUBSCRIPT%%"=="" ( pushd "%~dp0utilities" ^& start notepad.exe config.bat ^& exit )>> config.bat
+echo endlocal>> config.bat
+echo:>> config.bat
+echo :: Shows exactly Offline is doing, and never clears the screen. Useful for development and troubleshooting. Default: y>> config.bat
+echo set VERBOSEWRAPPER=y>> config.bat
+echo:>> config.bat
+echo :: Won't check for dependencies (flash, node, etc) and goes straight to launching. Useful for speedy launching post-install. Default: y>> config.bat
+echo set SKIPCHECKDEPENDS=y>> config.bat
+echo:>> config.bat
+echo :: Won't install dependencies, regardless of check results. Overridden by SKIPCHECKDEPENDS. Mostly useless, why did I add this again? Default: y>> config.bat
+echo set SKIPDEPENDINSTALL=y>> config.bat
+echo:>> config.bat
+echo :: Opens Offline in an included copy of ungoogled-chromium. Allows continued use of Flash as modern browsers disable it. Default: y>> config.bat
+echo set INCLUDEDCHROMIUM=y>> config.bat
+echo:>> config.bat
+echo :: Opens INCLUDEDCHROMIUM in headless mode. Looks pretty nice. Overrides CUSTOMBROWSER and BROWSER_TYPE. Default: y>> config.bat
+echo set APPCHROMIUM=y>> config.bat
+echo:>> config.bat
+echo :: Opens Offline in a browser of the user's choice. Needs to be a path to a browser executable in quotes. Default: n>> config.bat
+echo set CUSTOMBROWSER=n>> config.bat
+echo:>> config.bat
+echo :: Lets the launcher know what browser framework is being used. Mostly used by the Flash installer. Accepts "chrome", "firefox", and "n". Default: chrome>> config.bat
+echo set BROWSER_TYPE=chrome>> config.bat
+echo:>> config.bat
+echo :: Runs through all of the scripts code, while never launching or installing anything. Useful for development. Default: n>> config.bat
+echo set DRYRUN=n>> config.bat
+echo:>> config.bat
+echo :: Makes it so it uses the Cepstral website instead of VFProxy. Default: n>> config.bat
+echo set CEPSTRAL=n>> config.bat
+echo:>> config.bat
+:: auto update (what do you think it does, obvious)>> config.bat
+set AUTOUPDATE=y>> config.bat
 goto returnfromconfigcopy
