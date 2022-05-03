@@ -492,6 +492,6 @@ echo:>> config.bat
 echo :: Makes it so it uses the Cepstral website instead of VFProxy. Default: n>> config.bat
 echo set CEPSTRAL=n>> config.bat
 echo:>> config.bat
-:: auto update (what do you think it does, obvious)>> config.bat
-set AUTOUPDATE=y>> config.bat
+echo :: auto update (what do you think it does, obvious)>> config.bat
+echo set AUTOUPDATE=y>> config.bat
 goto returnfromconfigcopy
