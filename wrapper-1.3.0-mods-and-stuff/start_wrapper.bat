@@ -2,6 +2,8 @@
 :: Author: benson#0411
 :: Project Runner: GoTest334#9880
 :: License: MIT
+:: if this loops. then you have to restart this batch by double clicking on the start_wrapper.bat file again. i thought that creating an automatic restarter might do some tricks.
+:restartWrapper
 @echo off
 :: Lets variables work or something idk im not a nerd
 SETLOCAL ENABLEDELAYEDEXPANSION
@@ -88,8 +90,7 @@ goto configavailable
 echo Settings are missing for some reason?
 echo Restoring...
 goto configcopy
-:returnfromconfigcopy
-if not exist %USERPROFILE%\Downloads\Wrapper-Offline\utilities\config.bat ( echo Something is horribly wrong. You may be in a read-only system/admin folder. & pause & exit ) else ( call %USERPROFILE%\Downloads\Wrapper-Offline\utilities\config.bat )
+call %USERPROFILE%\Downloads\Wrapper-Offline\utilities\config.bat
 :configavailable
 
 ::::::::::::::::::::::
@@ -492,4 +493,4 @@ echo set CEPSTRAL=n>> config.bat
 echo:>> config.bat
 echo :: auto update (what do you think it does, obvious)>> config.bat
 echo set AUTOUPDATE=y>> config.bat
-goto returnfromconfigcopy
+goto restartWrapper
