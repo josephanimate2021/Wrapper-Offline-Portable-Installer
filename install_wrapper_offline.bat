@@ -45,6 +45,7 @@ echo Enter 1 to install Wrapper: Offline (Recomended)
 echo Enter 2 to install Wrapper: Offline Beta (This Installer Will Fix Some Stuff In Wrapper Offline Beta And Not Recomended)
 echo Enter 3 to install Wrapper: Offline Revision (Working Version Of Wrapper: Offline Beta And Recomended)
 echo Enter 4 to install the modded version of Wrapper: Offline (if you want to mod wrapper)
+echo Enter 5 to reapir Wrapper: Offline Beta. (it is so broken right now so this installer should at least help out with some repairing.)
 echo Enter 0 to close the installer
 :wrapperidle
 echo:
@@ -59,6 +60,7 @@ if "!choice!"=="1" goto download
 if "!choice!"=="2" goto download_beta
 if "!choice!"=="3" goto download_revision
 if "!choice!"=="4" goto download_modded_wrapper
+if "!choice!"=="5" goto callWrapperRepair
 echo Time to choose. && goto wrapperidle
 
 :download
@@ -143,17 +145,26 @@ echo you may consider telling the Wrapper: Offline Team about this since Joseph 
 echo This installer justs helps out on some repairing.
 pause
 ) else (
+:wrapperRepair
 rd /q /s node_modules
+if "%REPAIRINGWRAPPER%="" (
 echo Wrapper: Offline Beta Has Been Installed. 
 echo but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. 
 echo you can close this once the installation has been done to the dependicies.
+) else (
+echo Your Wrapper: Offline 1.3.0 Product Is Currently Being Repaired Right Now. this should take a few seconds unless the npm takes longer to respond.
+)
 if exist package-lock.json (
 npm install
 ) else (
 copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\package-lock.json %WOPATH%\wrapper
 npm install
 )
-echo All of the dependicies have been installed. 
+if "%REPAIRINGWRAPPER%="" (
+echo All of the dependicies have been installed.
+) else (
+echo All of the dependicies have been repaired.
+)
 echo This installer is now attempting to reapir Wrapper: Offline 1.3.0. 
 echo When will those stupid wrapper offline devs get a life!
 cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
@@ -231,3 +242,7 @@ pause
 :exit
 echo the Wrapper: Offline installer has been closed.
 pause & exit
+
+:callWrapperRepair
+set REPAIRINGWRAPPER=y
+goto wrapperRepair
