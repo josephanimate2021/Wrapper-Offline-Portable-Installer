@@ -93,8 +93,8 @@ pause
 
 :download_beta
 :wrapperRepair
-if "%REPAIRINGWRAPPER%"=="" (
 cls
+if "%REPAIRINGWRAPPER%"=="" (
 echo Cloning repository from GitHub...
 if exist .git (
 cd %USERPROFILE%\Downloads
