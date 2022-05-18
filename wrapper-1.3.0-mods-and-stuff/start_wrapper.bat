@@ -177,6 +177,7 @@ echo Enter 2 to open the server page
 echo Enter ? to open the FAQ
 echo Enter clr to clean up the screen
 echo Enter 0 to close Wrapper: Offline
+echo Enter 3 to restart Wrapper: Offline
 set /a _rand=(!RANDOM!*67/32768)+1
 if !_rand!==25 echo Enter things you think'll show a secret if you're feeling adventurous
 :wrapperidle
@@ -209,7 +210,7 @@ if /i "!choice!"=="xom" echo I break wrapper and i dont fix it HAHAHAHAHHA
 if /i "!choice!"=="GoTest334" ehco Attention nightshift personnel. Please report to your assigned post.
 :: dev options
 if /i "!choice!"=="amnesia" goto wipe_save
-if /i "!choice!"=="restart" goto restart
+if /i "!choice!"=="5" goto restartWrapper
 if /i "!choice!"=="folder" goto open_files
 echo Time to choose. && goto wrapperidle
 
