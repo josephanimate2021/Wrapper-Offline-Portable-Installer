@@ -147,7 +147,7 @@ pause
 ) else (
 :wrapperRepair
 rd /q /s node_modules
-if "%REPAIRINGWRAPPER%="" (
+if "%REPAIRINGWRAPPER%"=="" (
 echo Wrapper: Offline Beta Has Been Installed. 
 echo but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. 
 echo you can close this once the installation has been done to the dependicies.
@@ -160,7 +160,7 @@ npm install
 copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\package-lock.json %WOPATH%\wrapper
 npm install
 )
-if "%REPAIRINGWRAPPER%="" (
+if "%REPAIRINGWRAPPER%"=="" (
 echo All of the dependicies have been installed.
 ) else (
 echo All of the dependicies have been repaired.
