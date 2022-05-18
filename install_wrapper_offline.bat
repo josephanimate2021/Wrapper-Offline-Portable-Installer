@@ -10,6 +10,7 @@ set WOINSTALLPATH=%USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer
 set WOINSTALLPATH=%USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main
 )
 set WOMPATH=%USERPROFILE%\Downloads\Modded-Wrapper
+set STATEMENT=installed
 title Wrapper: Offline Installer [Initializing...]
 
 ::::::::::::::::::::
@@ -146,6 +147,7 @@ echo This installer justs helps out on some repairing.
 pause
 ) else (
 :wrapperRepair
+cd %WOPATH%\wrapper
 rd /q /s node_modules
 if "%REPAIRINGWRAPPER%"=="" (
 echo Wrapper: Offline Beta Has Been Installed. 
@@ -160,11 +162,7 @@ npm install
 copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\package-lock.json %WOPATH%\wrapper
 npm install
 )
-if "%REPAIRINGWRAPPER%"=="" (
-echo All of the dependicies have been installed.
-) else (
-echo All of the dependicies have been repaired.
-)
+echo All of the dependicies have been %STATEMENT%.
 echo This installer is now attempting to reapir Wrapper: Offline 1.3.0. 
 echo When will those stupid wrapper offline devs get a life!
 cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
@@ -245,4 +243,5 @@ pause & exit
 
 :callWrapperRepair
 set REPAIRINGWRAPPER=y
+set STATEMENT=repaired
 goto wrapperRepair
