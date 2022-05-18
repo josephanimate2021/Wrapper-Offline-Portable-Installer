@@ -210,7 +210,7 @@ if /i "!choice!"=="xom" echo I break wrapper and i dont fix it HAHAHAHAHHA
 if /i "!choice!"=="GoTest334" ehco Attention nightshift personnel. Please report to your assigned post.
 :: dev options
 if /i "!choice!"=="amnesia" goto wipe_save
-if /i "!choice!"=="5" goto restartWrapper
+if /i "!choice!"=="3" goto restartWrapper
 if /i "!choice!"=="folder" goto open_files
 echo Time to choose. && goto wrapperidle
 
