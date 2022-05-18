@@ -92,6 +92,8 @@ pause
 )
 
 :download_beta
+:wrapperRepair
+if "%REPAIRINGWRAPPER%"=="" (
 cls
 echo Cloning repository from GitHub...
 if exist .git (
@@ -101,19 +103,24 @@ call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone --single-b
 cd ..\..\
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
 )
+) else (
+echo Starting Repair For Wrapper: Offline 1.3.0.....
+)
 cd %WOPATH%\wrapper
 if not exist _ASSETS ( md _ASSETS )
 if not exist node_modules (
+if "%REPAIRINGWRAPPER%"=="" (
 echo Wrapper: Offline Beta Has Been Installed. 
 echo but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. 
 echo you can close this once the installation has been done to the dependicies.
+) else ( echo Installing Some NPM Packages AGAIN!! )
 if exist package-lock.json (
 npm install
 ) else (
 copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\package-lock.json %WOPATH%\wrapper
 npm install
 )
-echo All of the dependicies have been installed. 
+echo All of the dependicies have been %STATEMENT%. 
 echo This installer is now attempting to reapir Wrapper: Offline 1.3.0. 
 echo When will those stupid wrapper offline devs get a life!
 cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
@@ -146,15 +153,13 @@ echo you may consider telling the Wrapper: Offline Team about this since Joseph 
 echo This installer justs helps out on some repairing.
 pause
 ) else (
-:wrapperRepair
-cd %WOPATH%\wrapper
 rd /q /s node_modules
 if "%REPAIRINGWRAPPER%"=="" (
 echo Wrapper: Offline Beta Has Been Installed. 
 echo but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. 
 echo you can close this once the installation has been done to the dependicies.
 ) else (
-echo Your Wrapper: Offline 1.3.0 Product Is Currently Being Repaired Right Now. this should take a few seconds unless the npm takes longer to respond.
+echo Installing Some NPM Packages AGAIN!!
 )
 if exist package-lock.json (
 npm install
