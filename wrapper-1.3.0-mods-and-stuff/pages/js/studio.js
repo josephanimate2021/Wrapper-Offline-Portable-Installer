@@ -28,8 +28,7 @@ function showImporter() {
 			importerVisible = true;
 			importer.show();
 			if (!importer.data("importer"))
-				importer.data("importer", new AssetImporter(importer))
-			studio.openYourLibrary();
+				importer.data("importer", new AssetImporter(importer));
 		}
 	}
 	return true;
@@ -38,30 +37,23 @@ function hideImporter() {
 	importerVisible = false;
 	importer.hide();
 }
-function initPreviewPlayer(dataXmlStr, startFrame) {
+function initPreviewPlayer(dataXmlStr, startFrame, containsChapter, themeList) {
 	movieDataXmlStr = dataXmlStr;
-
 	filmXmlStr = dataXmlStr.split("<filmxml>")[1].split("</filmxml>")[0];
-
 	if (typeof startFrame == 'undefined') {
 		startFrame = 1;
 	} else {
 		startFrame = Math.max(1, parseInt(startFrame));
 	}
-
-	previewer.css("display", "block");
-
 	hideImporter(); // hide importer before previewing
-	
-
+	previewer.css("display", "block");
 	/* allow the user to preview their video from a scene that they desided to preview */ document.getElementById('preview_player').innerHTML = `
 	<object data="https://localhost:4664/animation/414827163ad4eb60/player.swf" type="application/x-shockwave-flash" width="800" height="450">
 	<param name="flashvars" value="apiserver=/&amp;isEmbed=1&amp;tlang=en_US&amp;isInitFromExternal=1&amp;startFrame=${startFrame}&amp;autostart=1&amp;storePath=https://localhost:4664/store/3a981f5cb2739137/&lt;store&gt;&amp;clientThemePath=https://localhost:4664/static/ad44370a650793d9/&lt;client_theme&gt;" />
 	<param name="allowScriptAccess" value="always" />
 	<param name="allowFullScreen" value="true" />
 	</object>`;
-	
-	studio.css("height", "0");
+	studio.css("height", "1px");
 }
 function retrievePreviewPlayerData() { return movieDataXmlStr }
 function hidePreviewer() {
@@ -133,6 +125,7 @@ class AssetImporter {
 				`).appendTo(this.queue);
 				break;
 			}
+			case "swf":
 			case "jpg":
 			case "png": {
 				validFileType = true;
@@ -151,6 +144,7 @@ class AssetImporter {
 						</div>
 					</div>
 				`).appendTo(this.queue);
+				if (ext == "swf") break;
 				const fr = new FileReader();
 				fr.addEventListener("load", e => {
 					el.find("img").attr("src", e.target.result);
@@ -174,12 +168,14 @@ class ImporterFile {
 		this.initialize();
 	}
 	initialize() {
-		this.el.find("[type]").on("click", (event) => {
+		this.el.find("[type]").on("click", event => {
 			const el = $(event.target);
 			const type = el.attr("type");
 			const t = this.typeFickser(type);
-			const name = $(event.target).parents('.importer_asset').find('.asset_name').text();
-			this.upload(name.replace(/\s/g, '_'), t);
+
+			// get file name
+			let name = el.parents(".importer_asset").find(".asset_name").text();			
+			this.upload(name, t);
 		});
 	}
 	typeFickser(type) {
@@ -188,18 +184,18 @@ class ImporterFile {
 			case "soundeffect":
 			case "voiceover": {
 				return { type: "sound", subtype: type };
-			}
-			case "bg":
+			} case "bg":
 			case "prop": {
 				return { type: type, subtype: 0 };
 			}
 		}
 	}
 	async upload(passedname, type) {
-		var name = passedname;
+		let name = passedname;
 		if (name == "")
 			name = "unnamed" + Math.random().toString().substring(2, 8); 
-		var b = new FormData();
+
+		let b = new FormData();
 		b.append("import", this.file);
 		b.append("name", name)
 		b.append("type", type.type);
@@ -211,9 +207,8 @@ class ImporterFile {
 			processData: false,
 			contentType: false,
 			dataType: "json"
-		}).done(d => {
-			studio[0].importerStatus("done");
-			this.el.fadeOut(() => this.el.remove())
-		}).catch(e => console.error("Import failed."))
+		})
+			.done(d => this.el.fadeOut(() => this.el.remove()))
+			.catch(e => console.error("Import failed. Error: " + e))
 	}
 }
