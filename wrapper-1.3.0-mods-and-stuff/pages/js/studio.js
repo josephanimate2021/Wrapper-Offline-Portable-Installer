@@ -37,7 +37,7 @@ function hideImporter() {
 	importerVisible = false;
 	importer.hide();
 }
-function initPreviewPlayer(dataXmlStr, startFrame, containsChapter, themeList) {
+function initPreviewPlayer(dataXmlStr, startFrame) {
 	movieDataXmlStr = dataXmlStr;
 	filmXmlStr = dataXmlStr.split("<filmxml>")[1].split("</filmxml>")[0];
 	if (typeof startFrame == 'undefined') {
