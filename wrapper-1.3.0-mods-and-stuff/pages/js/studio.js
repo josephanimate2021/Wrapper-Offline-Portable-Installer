@@ -1,4 +1,4 @@
-const importer = $("#importer");
+onst importer = $("#importer");
 const previewer = $("#previewer");
 const studio = $("#obj");
 
@@ -48,8 +48,8 @@ function initPreviewPlayer(dataXmlStr, startFrame) {
 	hideImporter(); // hide importer before previewing
 	previewer.css("display", "block");
 	/* allow the user to preview their video from a scene that they desided to preview */ document.getElementById('preview_player').innerHTML = `
-	<object data="https://localhost:4664/animation/414827163ad4eb60/player.swf" type="application/x-shockwave-flash" width="800" height="450">
-	<param name="flashvars" value="apiserver=/&amp;isEmbed=1&amp;tlang=en_US&amp;isInitFromExternal=1&amp;startFrame=${startFrame}&amp;autostart=1&amp;storePath=https://localhost:4664/store/3a981f5cb2739137/&lt;store&gt;&amp;clientThemePath=https://localhost:4664/static/ad44370a650793d9/&lt;client_theme&gt;" />
+	<object data="/animation/414827163ad4eb60/player.swf" type="application/x-shockwave-flash" width="800" height="450">
+	<param name="flashvars" value="apiserver=/&amp;isEmbed=1&amp;tlang=en_US&amp;isInitFromExternal=1&amp;startFrame=${startFrame}&amp;autostart=1&amp;storePath=/store/3a981f5cb2739137/&lt;store&gt;&amp;clientThemePath=/static/ad44370a650793d9/&lt;client_theme&gt;" />
 	<param name="allowScriptAccess" value="always" />
 	<param name="allowFullScreen" value="true" />
 	</object>`;
@@ -207,8 +207,9 @@ class ImporterFile {
 			processData: false,
 			contentType: false,
 			dataType: "json"
-		})
-			.done(d => this.el.fadeOut(() => this.el.remove()))
-			.catch(e => console.error("Import failed. Error: " + e))
+		}).done(d => {
+			studio[0].importerStatus("done");
+			this.el.fadeOut(() => this.el.remove())
+		}).catch(e => console.error("Import failed. Error: " + e))
 	}
 }
