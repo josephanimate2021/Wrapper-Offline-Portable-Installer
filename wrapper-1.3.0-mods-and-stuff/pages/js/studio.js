@@ -1,4 +1,4 @@
-onst importer = $("#importer");
+const importer = $("#importer");
 const previewer = $("#previewer");
 const studio = $("#obj");
 
