@@ -121,7 +121,7 @@ copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\package-lock.json %WOPATH%\wra
 npm install
 )
 echo All of the dependicies have been %STATEMENT%. 
-echo This installer is now attempting to reapir Wrapper: Offline 1.3.0. 
+echo After some testing, Wrapper 1.3.0 only needs some minor repairs since most of the things work fine. && goto minor_repair
 echo When will those stupid wrapper offline devs get a life!
 cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
 del %WOPATH%\wrapper\pages\js\studio.js
@@ -141,12 +141,14 @@ if not exist %WOPATH%\wrapper\_ASSETS\database.json (
 copy database.json %WOPATH%\wrapper\_ASSETS
 )
 cd ..\
+:minor_reapir
 del %WOPATH%\start_wrapper.bat
 copy start_wrapper.bat %WOPATH%
 if exist %WOPATH%\utilities\config.bat (
 del %WOPATH%\utilities\config.bat
 )
-echo Wrapper: Offline 1.3.0 has been repaired! 
+
+echo Wrapper: Offline 1.3.0 has only done some minor repairing due to its fine original use after testing. 
 echo Please enjoy using it. 
 echo if it breaks, 
 echo you may consider telling the Wrapper: Offline Team about this since Joseph Animate 2022 Does Not Own Wrapper: Offline. 
@@ -167,7 +169,7 @@ npm install
 copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\package-lock.json %WOPATH%\wrapper
 npm install
 )
-echo All of the dependicies have been %STATEMENT%.
+echo All of the dependicies have been %STATEMENT%. && goto minor_repair
 echo This installer is now attempting to reapir Wrapper: Offline 1.3.0. 
 echo When will those stupid wrapper offline devs get a life!
 cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
