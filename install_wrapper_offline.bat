@@ -107,13 +107,12 @@ call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-
 echo Starting Repair For Wrapper: Offline 1.3.0.....
 )
 cd %WOPATH%\wrapper
-if not exist _ASSETS ( md _ASSETS )
 if not exist node_modules (
 if "%REPAIRINGWRAPPER%"=="" (
 echo Wrapper: Offline Beta Has Been Installed. 
 echo but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. 
 echo you can close this once the installation has been done to the dependicies.
-) else ( echo Installing Some NPM Packages AGAIN!! )
+) else ( echo "Installing Some NPM Packages AGAIN!!" )
 if exist package-lock.json (
 npm install
 ) else (
@@ -121,27 +120,8 @@ copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\package-lock.json %WOPATH%\wra
 npm install
 )
 echo All of the dependicies have been %STATEMENT%. 
-echo After some testing, Wrapper 1.3.0 only needs some minor repairs since most of the things work fine. && goto minor_repair
-echo When will those stupid wrapper offline devs get a life!
-cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
-del %WOPATH%\wrapper\pages\js\studio.js
-copy studio.js %WOPATH%\wrapper\pages\js
-cd ..\html
-del %WOPATH%\wrapper\pages\html\list.html
-copy list.html %WOPATH%\wrapper\pages\html
-cd ..\..\views
-del %WOPATH%\wrapper\views\studio.eta
-del %WOPATH%\wrapper\views\player.eta
-del %WOPATH%\wrapper\views\char.eta
-copy studio.eta %WOPATH%\wrapper\views
-copy char.eta %WOPATH%\wrapper\views
-copy player.eta %WOPATH%\wrapper\views
-cd ..\_ASSETS
-if not exist %WOPATH%\wrapper\_ASSETS\database.json (
-copy database.json %WOPATH%\wrapper\_ASSETS
-)
+echo After some testing, Wrapper 1.3.0 only needs some minor repairs since most of the things work fine.
 cd ..\
-:minor_reapir
 del %WOPATH%\start_wrapper.bat
 copy start_wrapper.bat %WOPATH%
 if exist %WOPATH%\utilities\config.bat (
@@ -161,7 +141,7 @@ echo Wrapper: Offline Beta Has Been Installed.
 echo but the dependicies have to be installed in order for wrapper offline beta to run properly with no issues. 
 echo you can close this once the installation has been done to the dependicies.
 ) else (
-echo Installing Some NPM Packages AGAIN!!
+echo "Installing Some NPM Packages AGAIN!!"
 )
 if exist package-lock.json (
 npm install
@@ -169,26 +149,9 @@ npm install
 copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\package-lock.json %WOPATH%\wrapper
 npm install
 )
-echo All of the dependicies have been %STATEMENT%. && goto minor_repair
+echo All of the dependicies have been %STATEMENT%.
 echo This installer is now attempting to reapir Wrapper: Offline 1.3.0. 
 echo When will those stupid wrapper offline devs get a life!
-cd %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\pages\js
-del %WOPATH%\wrapper\pages\js\studio.js
-copy studio.js %WOPATH%\wrapper\pages\js
-cd ..\html
-del %WOPATH%\wrapper\pages\html\list.html
-copy list.html %WOPATH%\wrapper\pages\html
-cd ..\..\views
-del %WOPATH%\wrapper\views\studio.eta
-del %WOPATH%\wrapper\views\player.eta
-del %WOPATH%\wrapper\views\char.eta
-copy studio.eta %WOPATH%\wrapper\views
-copy char.eta %WOPATH%\wrapper\views
-copy player.eta %WOPATH%\wrapper\views
-cd ..\_ASSETS
-if not exist %WOPATH%\wrapper\_ASSETS\database.json (
-copy database.json %WOPATH%\wrapper\_ASSETS
-)
 cd ..\
 del %WOPATH%\start_wrapper.bat
 copy start_wrapper.bat %WOPATH%
