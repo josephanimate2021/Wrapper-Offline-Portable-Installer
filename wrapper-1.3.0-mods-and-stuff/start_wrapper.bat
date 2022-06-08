@@ -114,12 +114,10 @@ echo Loading Node.js and http-server...
 pushd %USERPROFILE%\Downloads\Wrapper-Offline\utilities
 if !VERBOSEWRAPPER!==y (
 	if !DRYRUN!==n (
-		start /MIN open_http-server.bat
 		start /MIN open_nodejs.bat
 	)
 ) else (
 	if !DRYRUN!==n (
-		start SilentCMD open_http-server.bat
 		start SilentCMD open_nodejs.bat
 	)
 )
