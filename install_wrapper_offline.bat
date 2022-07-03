@@ -72,6 +72,9 @@ call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://gi
 cd ..\..\
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
 )
+echo Installing some npm packages...
+cd Wrapper-Offline/wrapper
+npm install
 echo Wrapper: Offline Has Been Installed
 pause
 goto cls
@@ -86,7 +89,10 @@ call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone --single-b
 cd ..\..\
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone --single-branch --branch beta https://github.com/Wrapper-Offline/Wrapper-Offline.git
 )
-echo Wrapper: Offline Beta Has Been Installed
+echo Installing some npm packages...
+cd Wrapper-Offline/wrapper
+npm install
+echo Wrapper: Offline Has Been Installed
 pause
 goto cls
 
@@ -114,22 +120,10 @@ call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://gi
 cd ..\..\
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Rageyboi/Modded-Wrapper.git
 )
-echo The Modded Version Of Wrapper: Offline Has Been Installed. 
-cd %WOMPATH%\wrapper
-if not exist node_modules (
-if exist package-lock.json (
-echo you may close this installer once the dependicies needed for Modded wrapper to run are installed.
+echo Installing some npm packages...
+cd Modded-Wrapper/wrapper
 npm install
-echo All Of The Dependicies Are Installed.
-pause
-) else (
-echo you may close this installer once the dependicies needed for Modded wrapper to run are installed.
-copy %WOINSTALLPATH%\wrapper-1.3.0-mods-and-stuff\npm-packages\1.2.3\package-lock.json %WOMPATH%\wrapper
-npm install
-echo All Of The Dependicies Are Installed.
-pause
-)
-)
+echo Wrapper: Offline Modded Has Been Installed
 
 :exit
 echo the Wrapper: Offline installer has been closed.
