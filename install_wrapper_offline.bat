@@ -1,16 +1,6 @@
 :: Wrapper: Offline Installer
 :: Author: joseph the animator#2292
 :: License: MIT
-:: Set Some Installation Variables
-set WOPATH=%USERPROFILE%\Downloads\Wrapper-Offline
-set WORPATH=%USERPROFILE%\Downloads\Wrapper-Modded-Revision
-if exist .git (
-set WOINSTALLPATH=%USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer
-) else (
-set WOINSTALLPATH=%USERPROFILE%\Downloads\Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main
-)
-set WOMPATH=%USERPROFILE%\Downloads\Modded-Wrapper
-set STATEMENT=installed
 title Wrapper: Offline Installer [Initializing...]
 
 ::::::::::::::::::::
@@ -67,10 +57,20 @@ cls
 echo Cloning repository from GitHub...
 if exist .git (
 cd %USERPROFILE%\Downloads
-call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
+:: the portable git does not work for some people. So this should help a little. The user needs to have git installed first.
+if not exist Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe (
+git clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
 ) else (
-cd ..\..\
+call Wrapper-Offline-Portable-Installer\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
+)
+) else (
+cd %USERPROFILE%\Downloads
+:: the portable git does not work for some people. So this should help a little. The user needs to have git installed first.
+if not exist Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe (
+git clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
+) else (
 call Wrapper-Offline-Portable-Installer-main\Wrapper-Offline-Portable-Installer-main\PortableGit\bin\git.exe clone https://github.com/Wrapper-Offline/Wrapper-Offline.git
+)
 )
 echo Installing some npm packages...
 cd Wrapper-Offline/wrapper
